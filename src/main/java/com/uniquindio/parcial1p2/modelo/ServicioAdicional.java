@@ -1,5 +1,7 @@
 package com.uniquindio.parcial1p2.modelo;
 
+import com.uniquindio.parcial1p2.modelo.enums.TipoServicio;
+
 public class ServicioAdicional {
 
     private String codigo;

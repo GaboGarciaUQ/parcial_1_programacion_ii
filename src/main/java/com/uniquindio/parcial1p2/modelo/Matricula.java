@@ -4,6 +4,13 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.uniquindio.parcial1p2.modelo.comprobante.IExportable;
+import com.uniquindio.parcial1p2.modelo.entrega.IEntregable;
+import com.uniquindio.parcial1p2.modelo.fabricas.IFabricaComprobante;
+import com.uniquindio.parcial1p2.modelo.fabricas.IFabricaModalidad;
+import com.uniquindio.parcial1p2.modelo.identificacion.IIdentificable;
+import com.uniquindio.parcial1p2.modelo.programa.ProgramaFormacion;
+
 public class Matricula {
 
     // Atributos
