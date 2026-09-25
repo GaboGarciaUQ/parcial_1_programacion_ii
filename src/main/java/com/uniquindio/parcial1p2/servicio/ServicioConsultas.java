@@ -3,6 +3,9 @@ package com.uniquindio.parcial1p2.servicio;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.uniquindio.parcial1p2.modelo.Estudiante;
+import com.uniquindio.parcial1p2.modelo.Matricula;
+
 public class ServicioConsultas {
 
     public Estudiante buscarEstudiantePorTelefono(

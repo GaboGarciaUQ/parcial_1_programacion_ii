@@ -3,6 +3,8 @@ package com.uniquindio.parcial1p2.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.uniquindio.parcial1p2.modelo.programa.ProgramaFormacion;
+
 public class Academia {
 
     private static Academia instancia;

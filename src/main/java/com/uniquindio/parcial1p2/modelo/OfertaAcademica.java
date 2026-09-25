@@ -3,6 +3,8 @@ package com.uniquindio.parcial1p2.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.uniquindio.parcial1p2.modelo.programa.ProgramaFormacion;
+
 public class OfertaAcademica implements Cloneable {
 
     private List<ProgramaFormacion> programas;
@@ -38,11 +40,11 @@ public class OfertaAcademica implements Cloneable {
     }
 
     public OfertaAcademica clonarOferta() {
-        return clonar();
+        return clone();
     }
 
     @Override
-    public OfertaAcademica clonar() {
+    public OfertaAcademica clone() {
         try {
             OfertaAcademica copia = (OfertaAcademica) super.clone();
 
