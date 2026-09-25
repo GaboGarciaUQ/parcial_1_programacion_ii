@@ -33,6 +33,10 @@ public abstract class ProgramaFormacion{
 
     public double calcularValorFinal(){
         double valorFinal = 0;
+        valorFinal += duracionMeses*valorMensual;
+        for(IBeneficiable beneficio : beneficios){
+            valorFinal += beneficio.calcularBeneficio();
+        }
         return valorFinal;
     }
 
@@ -49,7 +53,7 @@ public abstract class ProgramaFormacion{
     }
 
     public double obtenerValorTotal(){
-        double valorTotal = 0;
+        double valorTotal = this.calcularValorFinal();
         return valorTotal;
     }
 
