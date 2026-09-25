@@ -18,6 +18,12 @@ public class ServicioAdicional {
                              boolean disponibilidad,
                              TipoServicio tipo) {
 
+        if (precio < 0) {
+            throw new IllegalArgumentException(
+                    "El precio no puede ser negativo."
+            );
+        }
+
         this.codigo = codigo;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -67,6 +73,12 @@ public class ServicioAdicional {
     }
 
     public void setPrecio(double precio) {
+        if (precio < 0) {
+            throw new IllegalArgumentException(
+                    "El precio no puede ser negativo."
+            );
+        }
+
         this.precio = precio;
     }
 

@@ -1,12 +1,12 @@
 package com.uniquindio.parcial1p2.modelo.programa;
-import java.util.ArrayList;
+
 import java.util.List;
 
 import com.uniquindio.parcial1p2.modelo.beneficios.IBeneficiable;
 import com.uniquindio.parcial1p2.modelo.enums.EstadoPrograma;
 import com.uniquindio.parcial1p2.modelo.enums.Modalidad;
 
-public abstract class ProgramaFormacion{
+public abstract class ProgramaFormacion {
 
     private String codigo;
     private String nombre;
@@ -18,8 +18,29 @@ public abstract class ProgramaFormacion{
     private Modalidad modalidad;
     private List<IBeneficiable> beneficios;
 
-    public ProgramaFormacion(String codigo, String nombre, String idioma, String descripcion, int duracionMeses,
-            double valorMensual, EstadoPrograma estado, Modalidad modalidad, List<IBeneficiable> beneficios) {
+    public ProgramaFormacion(String codigo, String nombre, String idioma,
+            String descripcion, int duracionMeses, double valorMensual,
+            EstadoPrograma estado, Modalidad modalidad,
+            List<IBeneficiable> beneficios) {
+
+        if (duracionMeses < 0) {
+            throw new IllegalArgumentException(
+                    "La duración en meses no puede ser negativa."
+            );
+        }
+
+        if (valorMensual < 0) {
+            throw new IllegalArgumentException(
+                    "El valor mensual no puede ser negativo."
+            );
+        }
+
+        if (estado == null) {
+            throw new IllegalArgumentException(
+                    "El estado del programa no puede ser nulo."
+            );
+        }
+
         this.codigo = codigo;
         this.nombre = nombre;
         this.idioma = idioma;
@@ -31,7 +52,7 @@ public abstract class ProgramaFormacion{
         this.beneficios = beneficios;
     }
 
-    public double calcularValorFinal(){
+    public double calcularValorFinal() {
         double valorFinal = 0;
         valorFinal += duracionMeses*valorMensual;
         for(IBeneficiable beneficio : beneficios){
@@ -40,26 +61,29 @@ public abstract class ProgramaFormacion{
         return valorFinal;
     }
 
-    public void agregarBeneficio(IBeneficiable beneficio){
+    public void agregarBeneficio(IBeneficiable beneficio) {
         this.beneficios.add(beneficio);
     }
 
-    public void elminarBeneficio(IBeneficiable beneficio){
+    public void elminarBeneficio(IBeneficiable beneficio) {
         this.beneficios.remove(beneficio);
     }
 
-    public List<IBeneficiable> obtenerBeneficios(){
+    public List<IBeneficiable> obtenerBeneficios() {
         return beneficios;
     }
 
+<<<<<<< HEAD
     public double obtenerValorTotal(){
         double valorTotal = this.calcularValorFinal();
+=======
+    public double obtenerValorTotal() {
+        double valorTotal = 0;
+>>>>>>> origin/ANDRES_CAMILO_CARVAJAL_FIGUEROA
         return valorTotal;
     }
 
     public abstract double calcularValorPrograma();
-
-    //Getters y Setters de aqui para abajo
 
     public String getCodigo() {
         return codigo;
@@ -98,6 +122,12 @@ public abstract class ProgramaFormacion{
     }
 
     public void setDuracionMeses(int duracionMeses) {
+        if (duracionMeses < 0) {
+            throw new IllegalArgumentException(
+                    "La duración en meses no puede ser negativa."
+            );
+        }
+
         this.duracionMeses = duracionMeses;
     }
 
@@ -106,6 +136,12 @@ public abstract class ProgramaFormacion{
     }
 
     public void setValorMensual(double valorMensual) {
+        if (valorMensual < 0) {
+            throw new IllegalArgumentException(
+                    "El valor mensual no puede ser negativo."
+            );
+        }
+
         this.valorMensual = valorMensual;
     }
 
@@ -114,6 +150,12 @@ public abstract class ProgramaFormacion{
     }
 
     public void setEstado(EstadoPrograma estado) {
+        if (estado == null) {
+            throw new IllegalArgumentException(
+                    "El estado del programa no puede ser nulo."
+            );
+        }
+
         this.estado = estado;
     }
 
@@ -132,5 +174,4 @@ public abstract class ProgramaFormacion{
     public void setBeneficios(List<IBeneficiable> beneficios) {
         this.beneficios = beneficios;
     }
-
 }

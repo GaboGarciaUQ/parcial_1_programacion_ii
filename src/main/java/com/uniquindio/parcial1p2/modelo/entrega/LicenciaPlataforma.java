@@ -15,4 +15,12 @@ public class LicenciaPlataforma implements IEntregable{
     public void entregar(){
     }
 
+    public String getCodigoLicencia() {
+        return codigoLicencia;
+    }
+
+    public void setCodigoLicencia(String codigoLicencia) {
+        this.codigoLicencia = codigoLicencia;
+    }
+
 }
