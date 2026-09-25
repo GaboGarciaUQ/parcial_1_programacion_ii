@@ -37,14 +37,15 @@ public abstract class ProgramaFormacion{
     }
 
     public void agregarBeneficio(IBeneficiable beneficio){
+        this.beneficios.add(beneficio);
     }
 
     public void elminarBeneficio(IBeneficiable beneficio){
+        this.beneficios.remove(beneficio);
     }
 
     public List<IBeneficiable> obtenerBeneficios(){
-        List<IBeneficiable> lista = new ArrayList<>();
-        return lista;
+        return beneficios;
     }
 
     public double obtenerValorTotal(){

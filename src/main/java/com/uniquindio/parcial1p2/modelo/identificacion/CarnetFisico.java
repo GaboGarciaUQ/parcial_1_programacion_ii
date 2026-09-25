@@ -10,7 +10,6 @@ public class CarnetFisico implements IIdentificable{
 
     @Override
     public String obtenerIdentificacion() {
-        String id = "";
         return id;
     }
 
