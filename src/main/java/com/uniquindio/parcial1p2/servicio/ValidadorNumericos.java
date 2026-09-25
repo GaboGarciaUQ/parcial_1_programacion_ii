@@ -1,3 +1,5 @@
+package com.uniquindio.parcial1p2.servicio;
+
 public class ValidadorNumericos {
 
     public boolean esNumeroPerfecto(int numero) {
