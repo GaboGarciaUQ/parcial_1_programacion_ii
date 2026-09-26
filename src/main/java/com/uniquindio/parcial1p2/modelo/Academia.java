@@ -24,19 +24,14 @@ public class Academia {
     private List<PeriodoAcademico> periodosAcademicos;
 
     private Academia() {
-    estudiantes = new ArrayList<>();
-    docentes = new ArrayList<>();
-    programas = new ArrayList<>();
-    serviciosAdicionales = new ArrayList<>();
-    matriculas = new ArrayList<>();
-    periodosAcademicos = new ArrayList<>();
+        estudiantes = new ArrayList<>();
+        docentes = new ArrayList<>();
+        programas = new ArrayList<>();
+        serviciosAdicionales = new ArrayList<>();
+        matriculas = new ArrayList<>();
+        periodosAcademicos = new ArrayList<>();
+    }
 
-<<<<<<< HEAD
-
-=======
-    cargarServiciosAdicionales();
-}
->>>>>>> origin/ANDRES_CAMILO_CARVAJAL_FIGUEROA
     public static Academia getInstancia() {
         if (instancia == null) {
             instancia = new Academia();
@@ -117,6 +112,7 @@ public class Academia {
             serviciosAdicionales.add(servicio);
         }
     }
+    
     private void cargarServiciosAdicionales() {
 
     registrarServicio(
