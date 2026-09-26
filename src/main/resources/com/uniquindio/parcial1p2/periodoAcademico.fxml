@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.uniquindio.parcial1p2.controlador.PeriodoAcademicoController">
+
+    <top>
+        <VBox spacing="5">
+            <padding>
+                <Insets top="15"
+                        right="15"
+                        bottom="10"
+                        left="15"/>
+            </padding>
+
+            <Label text="Periodos Académicos"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+            <Label text="Gestión de periodos y ofertas académicas de LinguaPlus"
+                   style="-fx-text-fill: #666666;"/>
+        </VBox>
+    </top>
+
+    <center>
+
+        <HBox spacing="20">
+
+            <padding>
+                <Insets top="10"
+                        right="15"
+                        bottom="15"
+                        left="15"/>
+            </padding>
+
+            <!-- TABLA PRINCIPAL -->
+            <VBox spacing="10"
+                  HBox.hgrow="ALWAYS">
+
+                <Label text="Periodos registrados"
+                       style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+                <TableView fx:id="tablaPeriodos"
+                           VBox.vgrow="ALWAYS">
+
+                    <columns>
+
+                        <TableColumn fx:id="columnaFechaInicio"
+                                     text="Fecha Inicio"
+                                     prefWidth="105"/>
+
+                        <TableColumn fx:id="columnaFechaFin"
+                                     text="Fecha Fin"
+                                     prefWidth="105"/>
+
+                        <TableColumn fx:id="columnaCantidadProgramasOferta"
+                                     text="Programas en Oferta"
+                                     prefWidth="130"/>
+
+                        <TableColumn fx:id="columnaCantidadMatriculas"
+                                     text="Matrículas"
+                                     prefWidth="100"/>
+
+                        <TableColumn fx:id="columnaEstado"
+                                     text="Estado"
+                                     prefWidth="100"/>
+
+                    </columns>
+
+                </TableView>
+
+                <!-- DETALLE DE OFERTA -->
+                <Label text="Programas de la oferta seleccionada"
+                       style="-fx-font-size: 15px; -fx-font-weight: bold;"/>
+
+                <TableView fx:id="tablaOfertaDetalle"
+                           prefHeight="170"
+                           VBox.vgrow="NEVER">
+
+                    <columns>
+
+                        <TableColumn fx:id="columnaProgramaDetalle"
+                                     text="Programa"
+                                     prefWidth="300"/>
+
+                    </columns>
+
+                </TableView>
+
+            </VBox>
+
+            <!-- PANEL DERECHO -->
+            <VBox spacing="15"
+                  prefWidth="310">
+
+                <Label text="Gestión del periodo"
+                       style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+                <VBox spacing="5">
+
+                    <Label text="Fecha de inicio"/>
+
+                    <DatePicker fx:id="dpFechaInicio"
+                                promptText="Seleccione fecha"
+                                maxWidth="Infinity"/>
+
+                </VBox>
+
+                <VBox spacing="5">
+
+                    <Label text="Fecha de fin"/>
+
+                    <DatePicker fx:id="dpFechaFin"
+                                promptText="Seleccione fecha"
+                                maxWidth="Infinity"/>
+
+                </VBox>
+
+                <Label text="Creación de periodo"
+                       style="-fx-font-weight: bold;"/>
+
+                <Button text="Crear periodo clonando oferta anterior"
+                        onAction="#crearPeriodoClonado"
+                        wrapText="true"
+                        maxWidth="Infinity"
+                        prefHeight="55"/>
+
+                <Button text="Crear periodo con oferta nueva"
+                        onAction="#crearPeriodoNuevo"
+                        wrapText="true"
+                        maxWidth="Infinity"
+                        prefHeight="50"/>
+
+                <Label text="Acciones"
+                       style="-fx-font-weight: bold;"/>
+
+                <Button text="Eliminar periodo"
+                        onAction="#eliminarPeriodo"
+                        maxWidth="Infinity"
+                        prefHeight="40"/>
+
+            </VBox>
+
+        </HBox>
+
+    </center>
+
+</BorderPane>

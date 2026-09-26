@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.uniquindio.parcial1p2.controlador.MatriculaController">
+
+    <padding>
+        <Insets top="8"
+                right="8"
+                bottom="8"
+                left="8"/>
+    </padding>
+
+    <top>
+        <VBox spacing="2">
+            <Label text="Gestión de Matrículas"/>
+            <Label text="Registro y administración de matrículas"/>
+        </VBox>
+    </top>
+
+    <center>
+        <HBox spacing="10">
+
+            <!-- TABLA -->
+
+            <VBox spacing="5"
+                  HBox.hgrow="ALWAYS"
+                  minWidth="450">
+
+                <Label text="Matrículas registradas"/>
+
+                <TableView fx:id="tablaMatriculas"
+                           minWidth="450"
+                           VBox.vgrow="ALWAYS">
+
+                    <columns>
+
+                        <TableColumn fx:id="columnaNumeroMatricula"
+                                     text="N.º"
+                                     prefWidth="80"/>
+
+                        <TableColumn fx:id="columnaEstudiante"
+                                     text="Estudiante"
+                                     prefWidth="150"/>
+
+                        <TableColumn fx:id="columnaPrograma"
+                                     text="Programa"
+                                     prefWidth="150"/>
+
+                        <TableColumn fx:id="columnaFechaInicio"
+                                     text="Fecha inicio"
+                                     prefWidth="100"/>
+
+                        <TableColumn fx:id="columnaDocenteTutor"
+                                     text="Docente tutor"
+                                     prefWidth="130"/>
+
+                        <TableColumn fx:id="columnaDescuento"
+                                     text="Descuento"
+                                     prefWidth="90"/>
+
+                        <TableColumn fx:id="columnaValorFinal"
+                                     text="Valor final"
+                                     prefWidth="100"/>
+
+                    </columns>
+
+                </TableView>
+
+            </VBox>
+
+
+            <!-- FORMULARIO -->
+
+            <VBox spacing="6"
+                  prefWidth="300"
+                  minWidth="300"
+                  maxWidth="300">
+
+                <Label text="Datos de la matrícula"/>
+
+                <GridPane hgap="5"
+                          vgap="4">
+
+                    <Label text="N.º:"
+                           GridPane.columnIndex="0"
+                           GridPane.rowIndex="0"/>
+
+                    <Label fx:id="lblNumeroMatricula"
+                           text="1"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="0"/>
+
+
+                    <Label text="Estudiante:"
+                           GridPane.columnIndex="0"
+                           GridPane.rowIndex="1"/>
+
+                    <ComboBox fx:id="cmbEstudiante"
+                              promptText="Seleccione"
+                              prefWidth="180"
+                              GridPane.columnIndex="1"
+                              GridPane.rowIndex="1"/>
+
+
+                    <Label text="Programa:"
+                           GridPane.columnIndex="0"
+                           GridPane.rowIndex="2"/>
+
+                    <ComboBox fx:id="cmbPrograma"
+                              promptText="Seleccione"
+                              prefWidth="180"
+                              GridPane.columnIndex="1"
+                              GridPane.rowIndex="2"/>
+
+
+                    <Label text="Fecha:"
+                           GridPane.columnIndex="0"
+                           GridPane.rowIndex="3"/>
+
+                    <DatePicker fx:id="dpFechaInicio"
+                                prefWidth="180"
+                                GridPane.columnIndex="1"
+                                GridPane.rowIndex="3"/>
+
+
+                    <Label text="Docente:"
+                           GridPane.columnIndex="0"
+                           GridPane.rowIndex="4"/>
+
+                    <ComboBox fx:id="cmbDocenteTutor"
+                              promptText="Ninguno"
+                              prefWidth="180"
+                              GridPane.columnIndex="1"
+                              GridPane.rowIndex="4"/>
+
+
+                    <Label text="Descuento:"
+                           GridPane.columnIndex="0"
+                           GridPane.rowIndex="5"/>
+
+                    <TextField fx:id="txtDescuento"
+                               promptText="0"
+                               prefWidth="180"
+                               GridPane.columnIndex="1"
+                               GridPane.rowIndex="5"/>
+
+
+                    <Label text="Observaciones:"
+                           GridPane.columnIndex="0"
+                           GridPane.rowIndex="6"/>
+
+                    <TextArea fx:id="txtObservaciones"
+                              promptText="Observaciones"
+                              prefWidth="180"
+                              prefHeight="50"
+                              wrapText="true"
+                              GridPane.columnIndex="1"
+                              GridPane.rowIndex="6"/>
+
+                </GridPane>
+
+
+                <!-- SERVICIOS ADICIONALES -->
+
+                <Label text="Servicios adicionales"/>
+
+                <ListView fx:id="listServiciosAdicionales"
+                          prefHeight="75"
+                          maxHeight="75"
+                          prefWidth="290"/>
+
+
+                <!-- COMPROBANTE -->
+
+                <HBox spacing="5"
+                      alignment="CENTER_LEFT">
+
+                    <Label text="Comprobante:"/>
+
+                    <ComboBox fx:id="cmbFormatoComprobante"
+                              prefWidth="70"/>
+
+                    <Button text="Generar"
+                            onAction="#generarComprobante"/>
+
+                </HBox>
+
+
+                <!-- BOTONES -->
+
+                <HBox spacing="5">
+
+                    <Button text="Registrar"
+                            onAction="#registrarMatricula"/>
+
+                    <Button text="Eliminar"
+                            onAction="#eliminarMatricula"/>
+
+                    <Button text="Limpiar"
+                            onAction="#limpiarCampos"/>
+
+                </HBox>
+
+            </VBox>
+
+        </HBox>
+    </center>
+
+</BorderPane>
