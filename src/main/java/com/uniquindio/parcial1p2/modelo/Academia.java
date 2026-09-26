@@ -24,15 +24,19 @@ public class Academia {
     private List<PeriodoAcademico> periodosAcademicos;
 
     private Academia() {
-        estudiantes = new ArrayList<>();
-        docentes = new ArrayList<>();
-        programas = new ArrayList<>();
-        serviciosAdicionales = new ArrayList<>();
-        matriculas = new ArrayList<>();
-        periodosAcademicos = new ArrayList<>();
-    }
+    estudiantes = new ArrayList<>();
+    docentes = new ArrayList<>();
+    programas = new ArrayList<>();
+    serviciosAdicionales = new ArrayList<>();
+    matriculas = new ArrayList<>();
+    periodosAcademicos = new ArrayList<>();
 
+<<<<<<< HEAD
 
+=======
+    cargarServiciosAdicionales();
+}
+>>>>>>> origin/ANDRES_CAMILO_CARVAJAL_FIGUEROA
     public static Academia getInstancia() {
         if (instancia == null) {
             instancia = new Academia();
@@ -47,12 +51,21 @@ public class Academia {
                     "El estudiante no puede ser nulo."
             );
         }
+        
 
         if (!estudiantes.contains(estudiante)) {
             estudiantes.add(estudiante);
         }
     }
+    public void eliminarEstudiante(Estudiante estudiante) {
+    if (estudiante == null) {
+        throw new IllegalArgumentException(
+                "El estudiante no puede ser nulo."
+        );
+    }
 
+    estudiantes.remove(estudiante);
+}
     public void registrarDocente(Docente docente) {
         if (docente == null) {
             throw new IllegalArgumentException(
@@ -64,7 +77,15 @@ public class Academia {
             docentes.add(docente);
         }
     }
+    public void eliminarDocente(Docente docente) {
+    if (docente == null) {
+        throw new IllegalArgumentException(
+                "El docente no puede ser nulo."
+        );
+    }
 
+    docentes.remove(docente);
+}
     public void registrarPrograma(ProgramaFormacion programa) {
         if (programa == null) {
             throw new IllegalArgumentException(
@@ -76,7 +97,15 @@ public class Academia {
             programas.add(programa);
         }
     }
+    public void eliminarPrograma(ProgramaFormacion programa) {
+    if (programa == null) {
+        throw new IllegalArgumentException(
+                "El programa no puede ser nulo."
+        );
+    }
 
+    programas.remove(programa);
+}
     public void registrarServicio(ServicioAdicional servicio) {
         if (servicio == null) {
             throw new IllegalArgumentException(
@@ -88,7 +117,61 @@ public class Academia {
             serviciosAdicionales.add(servicio);
         }
     }
+    private void cargarServiciosAdicionales() {
 
+    registrarServicio(
+            new ServicioAdicional(
+                    "SER001",
+                    "Examen de ubicación",
+                    "Examen para determinar el nivel de idioma del estudiante.",
+                    20000,
+                    true,
+                    com.uniquindio.parcial1p2.modelo.enums.TipoServicio.EXAMEN_UBICACION
+            )
+    );
+
+    registrarServicio(
+            new ServicioAdicional(
+                    "SER002",
+                    "Simulacro de certificación",
+                    "Simulacro para preparar al estudiante para un examen de certificación.",
+                    35000,
+                    true,
+                    com.uniquindio.parcial1p2.modelo.enums.TipoServicio.SIMULACRO_CERTIFICACION
+            )
+    );
+
+    registrarServicio(
+            new ServicioAdicional(
+                    "SER003",
+                    "Material de estudio",
+                    "Material adicional para reforzar el aprendizaje.",
+                    25000,
+                    true,
+                    com.uniquindio.parcial1p2.modelo.enums.TipoServicio.MATERIAL_ESTUDIO
+            )
+    );
+
+    registrarServicio(
+            new ServicioAdicional(
+                    "SER004",
+                    "Taller especial",
+                    "Taller complementario para fortalecer las habilidades del estudiante.",
+                    40000,
+                    true,
+                    com.uniquindio.parcial1p2.modelo.enums.TipoServicio.TALLER_ESPECIAL
+            )
+    );
+}
+    public void eliminarServicio(ServicioAdicional servicio) {
+    if (servicio == null) {
+        throw new IllegalArgumentException(
+                "El servicio no puede ser nulo."
+        );
+    }
+
+    serviciosAdicionales.remove(servicio);
+}
     public void registrarMatricula(Matricula matricula) {
         if (matricula == null) {
             throw new IllegalArgumentException(
