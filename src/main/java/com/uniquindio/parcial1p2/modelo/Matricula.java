@@ -13,7 +13,6 @@ import com.uniquindio.parcial1p2.modelo.programa.ProgramaFormacion;
 
 public class Matricula {
 
-    // Atributos
     private int numeroMatricula;
     private Estudiante estudiante;
     private ProgramaFormacion programa;
@@ -26,20 +25,33 @@ public class Matricula {
     private IIdentificable carnet;
     private IEntregable entregable;
 
-    // Constructor
-    public Matricula(int numeroMatricula, Estudiante estudiante,
-                     ProgramaFormacion programa, LocalDate fechaInicio) {
+    public Matricula(int numeroMatricula,
+                     Estudiante estudiante,
+                     ProgramaFormacion programa,
+                     LocalDate fechaInicio) {
+
+        if (numeroMatricula <= 0) {
+            throw new IllegalArgumentException(
+                    "El número de matrícula debe ser mayor que cero."
+            );
+        }
 
         if (estudiante == null) {
-            throw new IllegalArgumentException("El estudiante es obligatorio.");
+            throw new IllegalArgumentException(
+                    "El estudiante es obligatorio."
+            );
         }
 
         if (programa == null) {
-            throw new IllegalArgumentException("El programa es obligatorio.");
+            throw new IllegalArgumentException(
+                    "El programa es obligatorio."
+            );
         }
 
         if (fechaInicio == null) {
-            throw new IllegalArgumentException("La fecha de inicio es obligatoria.");
+            throw new IllegalArgumentException(
+                    "La fecha de inicio es obligatoria."
+            );
         }
 
         this.numeroMatricula = numeroMatricula;
@@ -55,13 +67,12 @@ public class Matricula {
         this.entregable = null;
     }
 
-    // Asignar tutor
     public void asignarTutor(Docente docente) {
         this.docenteTutor = docente;
     }
 
-    // Agregar servicio adicional
     public void agregarServicio(ServicioAdicional servicio) {
+
         if (servicio == null) {
             throw new IllegalArgumentException(
                     "El servicio adicional no puede ser nulo."
@@ -79,13 +90,12 @@ public class Matricula {
         }
     }
 
-    // Eliminar servicio adicional
     public void eliminarServicio(ServicioAdicional servicio) {
         serviciosAdicionales.remove(servicio);
     }
 
-    // Calcular valor final
     public double calcularValorFinal() {
+
         double valorPrograma = programa.calcularValorFinal();
         double valorServicios = obtenerValorServicios();
 
@@ -96,8 +106,9 @@ public class Matricula {
         return subtotal - valorDescuento;
     }
 
-    // Generar comprobante
-    public IExportable generarComprobante(IFabricaComprobante fabrica) {
+    public IExportable generarComprobante(
+            IFabricaComprobante fabrica) {
+
         if (fabrica == null) {
             throw new IllegalArgumentException(
                     "La fábrica de comprobante no puede ser nula."
@@ -109,8 +120,8 @@ public class Matricula {
         return this.comprobante;
     }
 
-    // Configurar productos según modalidad
     public void configurarModalidad(IFabricaModalidad fabrica) {
+
         if (fabrica == null) {
             throw new IllegalArgumentException(
                     "La fábrica de modalidad no puede ser nula."
@@ -121,13 +132,12 @@ public class Matricula {
         this.entregable = fabrica.crearEntregable();
     }
 
-    // Validar descuento
     public boolean validarDescuento() {
         return descuento >= 0.0 && descuento <= 30.0;
     }
 
-    // Obtener valor total de servicios
     public double obtenerValorServicios() {
+
         double total = 0.0;
 
         for (ServicioAdicional servicio : serviciosAdicionales) {
@@ -137,21 +147,18 @@ public class Matricula {
         return total;
     }
 
-    // Getters y setters
-
     public int getNumeroMatricula() {
         return numeroMatricula;
     }
 
-    public void setNumeroMatricula(int numeroMatricula) {
-        this.numeroMatricula = numeroMatricula;
-    }
+
 
     public Estudiante getEstudiante() {
         return estudiante;
     }
 
     public void setEstudiante(Estudiante estudiante) {
+
         if (estudiante == null) {
             throw new IllegalArgumentException(
                     "El estudiante es obligatorio."
@@ -166,6 +173,7 @@ public class Matricula {
     }
 
     public void setPrograma(ProgramaFormacion programa) {
+
         if (programa == null) {
             throw new IllegalArgumentException(
                     "El programa es obligatorio."
@@ -180,6 +188,7 @@ public class Matricula {
     }
 
     public void setFechaInicio(LocalDate fechaInicio) {
+
         if (fechaInicio == null) {
             throw new IllegalArgumentException(
                     "La fecha de inicio es obligatoria."
@@ -210,7 +219,8 @@ public class Matricula {
             );
         }
 
-        this.serviciosAdicionales = new ArrayList<>(serviciosAdicionales);
+        this.serviciosAdicionales =
+                new ArrayList<>(serviciosAdicionales);
     }
 
     public double getDescuento() {
@@ -218,6 +228,7 @@ public class Matricula {
     }
 
     public void setDescuento(double descuento) {
+
         if (descuento < 0.0 || descuento > 30.0) {
             throw new IllegalArgumentException(
                     "El descuento debe estar entre 0% y 30%."

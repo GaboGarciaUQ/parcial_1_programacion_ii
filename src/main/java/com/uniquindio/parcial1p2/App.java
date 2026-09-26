@@ -1,38 +1,59 @@
 package com.uniquindio.parcial1p2;
 
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
-/**
- * JavaFX App
- */
 public class App extends Application {
 
-    private static Scene scene;
-
     @Override
-    public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
-        stage.setScene(scene);
-        stage.show();
-    }
+    public void start(Stage stage) {
 
-    static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
-    }
+        try {
 
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
+            FXMLLoader loader = new FXMLLoader(
+                    App.class.getResource("/com/uniquindio/parcial1p2/main.fxml")
+            );
+
+            Parent root = loader.load();
+
+            Scene scene = new Scene(root, 1100, 700);
+
+            var archivoCSS = App.class.getResource(
+                    "/com/uniquindio/parcial1p2/styles.css"
+            );
+
+            if (archivoCSS != null) {
+                scene.getStylesheets().add(archivoCSS.toExternalForm());
+            }
+
+            stage.setTitle("LinguaPlus - Sistema de Gestión Académica");
+            stage.setScene(scene);
+            stage.setWidth(1100);
+            stage.setHeight(700);
+            stage.setResizable(true);
+            stage.show();
+
+        } catch (IOException e) {
+
+            System.err.println(
+                    "ERROR: No se pudo cargar la vista principal main.fxml."
+            );
+
+            System.err.println(
+                    "Verifique que el archivo exista en:"
+                    + " src/main/resources/com/uniquindio/parcial1p2/main.fxml"
+            );
+
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
-        launch();
+        launch(args);
     }
-
 }
