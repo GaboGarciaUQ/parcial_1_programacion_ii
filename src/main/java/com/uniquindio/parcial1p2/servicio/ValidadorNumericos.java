@@ -1,8 +1,4 @@
 package com.uniquindio.parcial1p2.servicio;
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/ANDRES_CAMILO_CARVAJAL_FIGUEROA
 public class ValidadorNumericos {
 
     public boolean esNumeroPerfecto(int numero) {

@@ -73,13 +73,8 @@ public abstract class ProgramaFormacion {
         return beneficios;
     }
 
-<<<<<<< HEAD
     public double obtenerValorTotal(){
         double valorTotal = this.calcularValorFinal();
-=======
-    public double obtenerValorTotal() {
-        double valorTotal = 0;
->>>>>>> origin/ANDRES_CAMILO_CARVAJAL_FIGUEROA
         return valorTotal;
     }
 

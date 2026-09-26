@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.uniquindio.parcial1p2.controlador.MainController">
+
+    <!-- Barra superior -->
+    <top>
+        <HBox spacing="15"
+              alignment="CENTER_LEFT">
+
+            <padding>
+                <Insets top="15"
+                        right="20"
+                        bottom="15"
+                        left="20"/>
+            </padding>
+
+            <VBox spacing="3">
+                <Label text="LinguaPlus"/>
+                <Label text="Sistema de Gestión Académica"/>
+            </VBox>
+
+        </HBox>
+    </top>
+
+    <!-- Menú lateral -->
+    <left>
+        <VBox spacing="10"
+              prefWidth="220">
+
+            <padding>
+                <Insets top="20"
+                        right="15"
+                        bottom="20"
+                        left="15"/>
+            </padding>
+
+            <Button text="Estudiantes"
+                    maxWidth="Infinity"
+                    onAction="#mostrarEstudiantes"/>
+
+            <Button text="Docentes"
+                    maxWidth="Infinity"
+                    onAction="#mostrarDocentes"/>
+
+            <Button text="Programas"
+                    maxWidth="Infinity"
+                    onAction="#mostrarProgramas"/>
+
+            <Button text="Matrículas"
+                    maxWidth="Infinity"
+                    onAction="#mostrarMatriculas"/>
+
+            <Button text="Servicios Adicionales"
+                    maxWidth="Infinity"
+                    onAction="#mostrarServiciosAdicionales"/>
+
+            <Button text="Periodos Académicos"
+                    maxWidth="Infinity"
+                    onAction="#mostrarPeriodosAcademicos"/>
+
+            <Button text="Consultas"
+                    maxWidth="Infinity"
+                    onAction="#mostrarConsultas"/>
+
+        </VBox>
+    </left>
+
+    <!-- Área central donde se cargan las vistas -->
+    <center>
+        <StackPane fx:id="panelCentral">
+            <padding>
+                <Insets top="20"
+                        right="20"
+                        bottom="20"
+                        left="20"/>
+            </padding>
+        </StackPane>
+    </center>
+
+</BorderPane>

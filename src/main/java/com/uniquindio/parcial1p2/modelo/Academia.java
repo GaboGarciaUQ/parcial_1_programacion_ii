@@ -32,6 +32,7 @@ public class Academia {
         periodosAcademicos = new ArrayList<>();
     }
 
+
     public static Academia getInstancia() {
         if (instancia == null) {
             instancia = new Academia();
