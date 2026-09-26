@@ -40,7 +40,7 @@ public class Main {
 
 
         //Caso Que Rompe
-        //rn001.setDescuento(35);
+        rn001.setDescuento(35);
 
         //RN-002
 
@@ -73,14 +73,14 @@ public class Main {
         }
 
         //Caso que rompe
-        //ProgramaPersonalizado pp002 = new ProgramaPersonalizado("pp002","Aleman Nativo","Aleman","",6,100000,EstadoPrograma.FINALIZADO,Modalidad.PRESENCIAL,new ArrayList<>(),9,"0",null);
+        ProgramaPersonalizado pp002 = new ProgramaPersonalizado("pp002","Aleman Nativo","Aleman","",6,100000,EstadoPrograma.FINALIZADO,Modalidad.PRESENCIAL,new ArrayList<>(),9,"0",null);
 
 
         //RN-004
         
         //Caso que cumple
         System.out.println(rn001.getCarnet());
-        //rn001.getEntregable().entregar();
+        rn001.getEntregable().entregar();
 
         //Caso que rompe
 
